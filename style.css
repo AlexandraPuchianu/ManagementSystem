@@ -2,6 +2,7 @@ form{
     margin-top: 3rem;
     margin-left: 3rem;
 }
+
 .submitButton{
     background-color: #1a73e8;
     border: none;
@@ -15,3 +16,23 @@ form{
     padding-right: 1.5rem;
     border-radius: 4px;
 }
+
+.employeesList{
+    margin-top: 3rem;
+    margin-left: 3rem;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
