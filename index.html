@@ -6,7 +6,7 @@
         <script src="script.js"></script>
     </head>
 <body>
-    <form action="">
+    <form name="inputs">
         <label for="fname">First name: </label>
         <input type="text" id="fname" name="fname" placeholder="First name"><br><br>
         <label for="lname">Last name: </label>
@@ -15,12 +15,12 @@
         <input type="text" id="email" name="email" placeholder="Email"><br><br>
         <label for="sex">Sex:</label>
         <select name="sex" id="sex">
-            <option value="Feminin">Feminin</option>
-            <option value="Masculin">Masculin</option>
+            <option value="F">Feminin</option>
+            <option value="M">Masculin</option>
         </select><br><br>
         <label for="birthdate">Birthdate: </label>
         <input type="date" id="birthdate" name="birthdate" value="2003-01-01" min="1921-01-01" max="2021-04-23"><br><br>
-        <button type="submit" class="submitButton">Submit</button>
+        <button type="submit" class="submitButton" onClick="submitEmployee()">Submit</button>
     </form> 
 
     <div class="employeesList">
