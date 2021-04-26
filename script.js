@@ -60,3 +60,17 @@ function deleteEmployee(elem) {
     var row = elem.parentNode.parentNode;
     row.parentNode.removeChild(row);
 }
+
+function searchEmployees(){
+    let employeesTable = document.querySelector("table");
+    for (var index = 1, row; row = employeesTable.rows[index]; index++){
+        var firstName = row.cells[0].innerText;
+        input = document.getElementById("searchEmployees");
+        filter = input.value.toUpperCase();
+        if (firstName.toUpperCase().indexOf(filter) > -1) {
+            employeesTable.rows[index].style.display = "";
+        } else {
+            employeesTable.rows[index].style.display = "none";
+        }
+    }
+}
