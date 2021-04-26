@@ -4,6 +4,7 @@ var person = {firstName:"",
             gender:"",
             birthdate:""
         };
+var employeesList=[];
    
 var monthNames = ["January", "February", "March", "April", "May","June","July", "August", "September", "October", "November","December"];
 
@@ -16,29 +17,36 @@ function validateInput(firstName, lastName, email){
 }
         
 function addEmployee() {
+    
     let employeesTable = document.querySelector("table");
 
-    person.firstName = document.getElementById('fname').value;
-    person.lastName = document.getElementById('lname').value;
-    person.email = document.getElementById('email').value;
+    var newEmployee = new Object();
+    newEmployee.firstName = document.getElementById('fname').value;
+    newEmployee.lastName = document.getElementById('lname').value;
+    newEmployee.email = document.getElementById('email').value;
     
-    if (!validateInput(person.firstName, person.lastName, person.email)) {
+    if (!validateInput(newEmployee.firstName, newEmployee.lastName, newEmployee.email)) {
         warning.innerHTML="You need to fill all the information!";
         return;
     }
         
     warning.innerHTML="";
 
-    person.gender = document.getElementById('gender').value;
-    person.birthdate = document.getElementById('birthdate').value;
+    newEmployee.gender = document.getElementById('gender').value;
         
-    var birthdate = person.birthdate.split("-")
+    birthdateString = document.getElementById('birthdate').value;
+    var birthdateArray = birthdateString.split("-")
+    
+    newEmployee.birthdate = birthdateArray[2] + " " +monthNames[parseInt(birthdateArray[1] - 1)] + " " + birthdateArray[0]
+    
+    employeesList.push(newEmployee)
+    console.log(employeesList)
     let newRow = ` <tr>
-                        <td id="firstName">${person.firstName}</td>
-                        <td id="lastName">${person.lastName}</td>
-                        <td id="email">${person.email}</td>
-                        <td id="gender">${person.gender}</td>
-                        <td id="birthdate">${birthdate[2]} ${monthNames[parseInt(birthdate[1] - 1)]} ${birthdate[0]}</td>
+                        <td id="firstName">${newEmployee.firstName}</td>
+                        <td id="lastName">${newEmployee.lastName}</td>
+                        <td id="email">${newEmployee.email}</td>
+                        <td id="gender">${newEmployee.gender}</td>
+                        <td id="birthdate">${newEmployee.birthdate}</td>
                         <td><button onclick="deleteEmployee(this)" id="deleteBtn"><i class="fa fa-close"></i></button></td>
                     </tr>`;
     
