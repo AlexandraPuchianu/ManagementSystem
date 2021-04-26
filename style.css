@@ -45,19 +45,25 @@ table {
     font-size: 1rem;
   }
 
-  .searchBar{
+  .operations{
     display: inline-flex;
   }
 
+  .searchBar{
+    display: inline-flex;
+    margin-bottom: 0.5rem;
+  }
+
   #searchEmployees{
-    width: 14%;
+    width: 25%;
     font-size: 16px;
     padding: 0.7rem 0.5rem 0.2rem 1rem;
     border: 1px solid #ddd;
     margin-bottom: 1rem;
-    margin-left: 73rem;
+    margin-left: 28rem;
     border-right: none;
     border-radius: 0.5rem 0 0 0.5rem;
+    margin-top: 0.5rem;
   }
 
   .searchIcon{
@@ -68,4 +74,24 @@ table {
     margin-bottom: 1rem;
     border-left: none;
     border-radius: 0 0.5rem 0.5rem 0;
+    margin-top: 0.5rem;
+  }
+
+  button{
+    background-color: #1a73e8;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    height: 2rem;
+    margin-left: 2rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 4px;
+  }
+
+  .sortEmployeesButtons{
+    margin-left: 9rem;
+    margin-top: 0.5rem;
   }
