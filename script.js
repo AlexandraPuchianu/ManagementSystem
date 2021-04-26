@@ -17,8 +17,6 @@ function validateInput(firstName, lastName, email){
 }
         
 function addEmployee() {
-    
-    let employeesTable = document.querySelector("table");
 
     var newEmployee = new Object();
     newEmployee.firstName = document.getElementById('fname').value;
@@ -40,19 +38,22 @@ function addEmployee() {
     newEmployee.birthdate = birthdateArray[2] + " " +monthNames[parseInt(birthdateArray[1] - 1)] + " " + birthdateArray[0]
     
     employeesList.push(newEmployee)
-    console.log(employeesList)
+    appendRow(newEmployee)
+}
+
+function appendRow(employee){
+    let employeesTable = document.querySelector("table");
     let newRow = ` <tr>
-                        <td id="firstName">${newEmployee.firstName}</td>
-                        <td id="lastName">${newEmployee.lastName}</td>
-                        <td id="email">${newEmployee.email}</td>
-                        <td id="gender">${newEmployee.gender}</td>
-                        <td id="birthdate">${newEmployee.birthdate}</td>
+                        <td id="firstName">${employee.firstName}</td>
+                        <td id="lastName">${employee.lastName}</td>
+                        <td id="email">${employee.email}</td>
+                        <td id="gender">${employee.gender}</td>
+                        <td id="birthdate">${employee.birthdate}</td>
                         <td><button onclick="deleteEmployee(this)" id="deleteBtn"><i class="fa fa-close"></i></button></td>
                     </tr>`;
-    
-    console.log(employeesTable)
-            
+                
     employeesTable.innerHTML += newRow;
+
 }
 
 function deleteEmployee(elem) {
