@@ -55,12 +55,12 @@ table {
   }
 
   #searchEmployees{
-    width: 25%;
+    width: 32%;
     font-size: 16px;
     padding: 0.7rem 0.5rem 0.2rem 1rem;
     border: 1px solid #ddd;
     margin-bottom: 1rem;
-    margin-left: 28rem;
+    margin-left: 21rem;
     border-right: none;
     border-radius: 0.5rem 0 0 0.5rem;
     margin-top: 0.5rem;
@@ -92,6 +92,6 @@ table {
   }
 
   .sortEmployeesButtons{
-    margin-left: 9rem;
+    margin-left: 1rem;
     margin-top: 0.5rem;
   }
