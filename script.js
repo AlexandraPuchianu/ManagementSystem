@@ -2,15 +2,16 @@ var person = {firstName:"",
             lastName:"", 
             email:"", 
             gender:"",
-            birthdate:""
+            birthdate:"",
+            picture:""
         };
 var employeesList=[];
    
 var monthNames = ["January", "February", "March", "April", "May","June","July", "August", "September", "October", "November","December"];
 
-function validateInput(firstName, lastName, email){
+function validateInput(newEmployee){
         
-    if (!firstName || !lastName || !email) {
+    if (!newEmployee.firstName || !newEmployee.lastName || !newEmployee.email || !newEmployee.picture) {
         return false;
     }
     return true;
@@ -22,13 +23,12 @@ function addEmployee() {
     newEmployee.firstName = document.getElementById('fname').value;
     newEmployee.lastName = document.getElementById('lname').value;
     newEmployee.email = document.getElementById('email').value;
-    
-    if (!validateInput(newEmployee.firstName, newEmployee.lastName, newEmployee.email)) {
-        warning.innerHTML="You need to fill all the information!";
+    newEmployee.picture = document.getElementById('picture').value;
+
+    if (!validateInput(newEmployee)) {
+        alert("You need to fill all the information!");
         return;
     }
-        
-    warning.innerHTML="";
 
     newEmployee.gender = document.getElementById('gender').value;
         
