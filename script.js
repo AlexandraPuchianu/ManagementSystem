@@ -43,7 +43,10 @@ function addEmployee() {
 
 function appendRow(employee){
     let employeesTable = document.querySelector("table");
+    var rowId = employeesTable.getElementsByTagName("tr").length;
+    upload(employee.picture, rowId)
     let newRow = ` <tr>
+                        <td id="picture"><img id='profPic" + rowId +"' style='width: 20px; height: 20px' src='#'>
                         <td id="firstName">${employee.firstName}</td>
                         <td id="lastName">${employee.lastName}</td>
                         <td id="email">${employee.email}</td>
@@ -72,5 +75,19 @@ function searchEmployees(){
         } else {
             employeesTable.rows[index].style.display = "none";
         }
+    }
+
+
+function upload(input,rowId){
+    console.log(input.files)
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $("#profPic" + rowId)
+                .attr("src", e.target.result);
+        };
+
+        reader.readAsDataURL(input.files[0]);
     }
 }
