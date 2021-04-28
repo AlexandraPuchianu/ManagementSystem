@@ -28,8 +28,6 @@ var monthNames = ["January", "February", "March", "April", "May","June","July", 
 function loadEmployees(employeesList){
     for (index = 0; index < employeesList.length; index++)
     { 
-        console.log("astia sunt in for")
-        console.log(employeesList[index]); 
         appendRow(employeesList[index])
     }
 }
