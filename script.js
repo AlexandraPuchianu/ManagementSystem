@@ -5,7 +5,7 @@ var person = {firstName:"",
             birthdate:"",
             picture:""
         };
-        
+
 var employeesList=[];
 
 jQuery(document).ready(function ($) {
@@ -103,9 +103,6 @@ function searchEmployees(){
             employeesTable.rows[index].style.display = "none";
         }
     }
-
-    console.log("aici e lista dar afara gen :")
-        console.log(employeesList)
 
 }
 
