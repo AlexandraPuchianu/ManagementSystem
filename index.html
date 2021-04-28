@@ -31,6 +31,15 @@
     <div class="sortEmployeesButtons">
         <button id="sortButton" sort="up" onClick="sortEmployeesByDate()">Sort employees by birthdate</button>
     </div>
+    <div class="filterByGender">
+        <label>Filter By Gender: </label>
+        <select id="filterGender" required onchange="filterEmployees()">
+        <option value="" selected="selected">None</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
     <div class="searchBar">
         <input type="text" id="searchEmployees" onkeyup="searchEmployees()" placeholder="Search for employees...">
         <span class="searchIcon"><i class="fa fa-search"></i></span>

@@ -49,6 +49,10 @@ table {
     display: inline-flex;
   }
 
+  .filterByGender{
+    margin-left: 6rem;
+    margin-top: 1rem;
+  }
   .searchBar{
     display: inline-flex;
     margin-bottom: 0.5rem;
