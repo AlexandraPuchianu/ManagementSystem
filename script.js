@@ -5,10 +5,34 @@ var person = {firstName:"",
             birthdate:"",
             picture:""
         };
+        
 var employeesList=[];
+
+jQuery(document).ready(function ($) {
+    $.ajax({
+        method: "GET",
+        url: 'https://localhost:5001/employee/Employee',
+        success: function (data) {
+            employeesList = data;
+            loadEmployees(employeesList);
+        },
+        error: function (data) {
+        alert(`Failed to load employees list.`);
+        },
+    });
+
+});
    
 var monthNames = ["January", "February", "March", "April", "May","June","July", "August", "September", "October", "November","December"];
 
+function loadEmployees(employeesList){
+    for (index = 0; index < employeesList.length; index++)
+    { 
+        console.log("astia sunt in for")
+        console.log(employeesList[index]); 
+        appendRow(employeesList[index])
+    }
+}
 function validateInput(newEmployee){
         
     if (!newEmployee.firstName || !newEmployee.lastName || !newEmployee.email || !newEmployee.picture) {
@@ -79,6 +103,10 @@ function searchEmployees(){
             employeesTable.rows[index].style.display = "none";
         }
     }
+
+    console.log("aici e lista dar afara gen :")
+        console.log(employeesList)
+
 }
 
 function upload(input,rowId){
