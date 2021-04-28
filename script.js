@@ -90,10 +90,12 @@ function deleteEmployee(elem) {
 }
 
 function searchEmployees(){
+    
     let employeesTable = document.querySelector("table");
     for (var index = 1, row; row = employeesTable.rows[index]; index++){
-        var firstName = row.cells[0].innerText;
-        input = document.getElementById("searchEmployees");
+        var firstName = row.cells[1].innerText;
+        input = document.getElementById('inputSearchEmployees');
+        
         filter = input.value.toUpperCase();
         if (firstName.toUpperCase().indexOf(filter) > -1) {
             employeesTable.rows[index].style.display = "";
