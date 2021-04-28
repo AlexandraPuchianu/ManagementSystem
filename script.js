@@ -133,3 +133,21 @@ function sortEmployeesByDate() {
         }
     }
 }
+
+function filterEmployees() {
+    let filter = document.getElementById('filterGender').value;
+    let employeesTable = document.querySelector("table");
+    tr = employeesTable.getElementsByTagName("tr");
+  
+    for (index = 0; index < tr.length; index++) {
+      td = tr[index].getElementsByTagName("td")[4];
+      if (td) {
+        genderValue = td.textContent || td.innerText;
+        if (genderValue == filter || filter == "") {
+          tr[index].style.display = "";
+        }else {
+          tr[index].style.display = "none";
+        }
+      }
+    }
+  }
