@@ -24,19 +24,22 @@ function addEmployee() {
     newEmployee.lastName = document.getElementById('lname').value;
     newEmployee.email = document.getElementById('email').value;
     newEmployee.picture = document.getElementById('picture').value;
-
+    console.log(document.getElementById('picture').value)
     if (!validateInput(newEmployee)) {
         alert("You need to fill all the information!");
+        console.log(newEmployee.picture)
         return;
     }
 
     newEmployee.gender = document.getElementById('gender').value;
         
-    birthdateString = document.getElementById('birthdate').value;
-    var birthdateArray = birthdateString.split("-")
+    // birthdateString = document.getElementById('birthdate').value;
+    // var birthdateArray = birthdateString.split("-")
     
-    newEmployee.birthdate = birthdateArray[2] + " " +monthNames[parseInt(birthdateArray[1] - 1)] + " " + birthdateArray[0]
+    // newEmployee.birthdate = birthdateArray[2] + " " +monthNames[parseInt(birthdateArray[1] - 1)] + " " + birthdateArray[0]
     
+    newEmployee.birthdate = document.getElementById('birthdate').value;
+
     employeesList.push(newEmployee)
     appendRow(newEmployee)
 }
@@ -76,7 +79,7 @@ function searchEmployees(){
             employeesTable.rows[index].style.display = "none";
         }
     }
-
+}
 
 function upload(input,rowId){
     console.log(input.files)
@@ -89,5 +92,44 @@ function upload(input,rowId){
         };
 
         reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function sortEmployeesByDate() {
+
+    var sortAttribute = document.getElementById("sortButton").getAttribute("sort");
+    if(sortAttribute == "up") {
+        document.getElementById("sortButton").setAttribute("sort", "down");
+    }else {
+        document.getElementById("sortButton").setAttribute("sort", "up");
+    }
+
+    var employeesTable, rows, switching, index, x, y, shouldSwitch;
+    employeesTable = document.querySelector("table");
+    switching = true;
+    
+    while (switching) {
+        switching = false;
+        rows = employeesTable.rows;
+        for (index = 1; index < (rows.length - 1); index++) {
+            shouldSwitch = false;
+            x = new Date(rows[index].getElementsByTagName("td")[5].innerText);
+            y = new Date(rows[index + 1].getElementsByTagName("td")[5].innerText);
+            if(sortAttribute == "up") {
+                if (x < y) {
+                    shouldSwitch = true;
+                    break;
+                }
+            } else if(sortAttribute == "down") {
+                if (x > y) {
+                    shouldSwitch = true;
+                    break;
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[index].parentNode.insertBefore(rows[index + 1], rows[index]);
+            switching = true;
+        }
     }
 }
