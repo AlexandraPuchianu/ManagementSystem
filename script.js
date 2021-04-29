@@ -41,7 +41,6 @@ function addEmployee() {
     newEmployee.Picture = "pic";
     if (!validateInput(newEmployee)) {
         alert("You need to fill all the information!");
-        console.log(newEmployee.picture)
         return;
     }
 
@@ -110,7 +109,7 @@ function searchEmployees(){
 }
 
 function upload(input,rowId){
-    console.log(input.files)
+    
     if (input.files && input.files[0]) {
         var reader = new FileReader();
 
