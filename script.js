@@ -25,7 +25,7 @@ function loadEmployees(employeesList){
 }
 function validateInput(newEmployee){
         
-    if (!newEmployee.firstName || !newEmployee.lastName || !newEmployee.email || !newEmployee.picture) {
+    if (!newEmployee.FirstName || !newEmployee.LastName || !newEmployee.Email || !newEmployee.Picture) {
         return false;
     }
     return true;
@@ -34,25 +34,25 @@ function validateInput(newEmployee){
 function addEmployee() {
 
     var newEmployee = new Object();
-    newEmployee.firstName = document.getElementById('fname').value;
-    newEmployee.lastName = document.getElementById('lname').value;
-    newEmployee.email = document.getElementById('email').value;
-    newEmployee.picture = document.getElementById('picture').value;
-    console.log(document.getElementById('picture').value)
+    newEmployee.Id = 0;
+    newEmployee.FirstName = document.getElementById('fname').value;
+    newEmployee.LastName = document.getElementById('lname').value;
+    newEmployee.Email = document.getElementById('email').value;
+    newEmployee.Picture = "pic";
     if (!validateInput(newEmployee)) {
         alert("You need to fill all the information!");
         console.log(newEmployee.picture)
         return;
     }
 
-    newEmployee.gender = document.getElementById('gender').value;
+    newEmployee.Gender = document.getElementById('gender').value;
         
     // birthdateString = document.getElementById('birthdate').value;
     // var birthdateArray = birthdateString.split("-")
     
     // newEmployee.birthdate = birthdateArray[2] + " " +monthNames[parseInt(birthdateArray[1] - 1)] + " " + birthdateArray[0]
     
-    newEmployee.birthdate = document.getElementById('birthdate').value;
+    newEmployee.Birthdate = document.getElementById('birthdate').value;
 
     employeesList.push(newEmployee)
     appendRow(newEmployee)
