@@ -54,8 +54,19 @@ function addEmployee() {
     
     newEmployee.Birthdate = document.getElementById('birthdate').value;
 
-    employeesList.push(newEmployee)
-    appendRow(newEmployee)
+    $.ajax({
+        method: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(newEmployee),
+        url: 'https://localhost:5001/employee/Employee',
+        success: function (data) {
+            appendRow(data)
+        },
+        error: function (data) {
+        alert(`Failed to load employees list.`);
+        },
+    });
+    
 }
 
 function appendRow(employee){
