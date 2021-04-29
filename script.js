@@ -1,11 +1,3 @@
-var person = {firstName:"", 
-            lastName:"", 
-            email:"", 
-            gender:"",
-            birthdate:"",
-            picture:""
-        };
-
 var employeesList=[];
 
 jQuery(document).ready(function ($) {
